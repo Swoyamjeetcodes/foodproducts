@@ -1,6 +1,6 @@
 const BASE_URL = 'https://world.openfoodfacts.org';
 
-export const fetchProducts = async (page = 1, pageSize = 20) => {
+export const fetchProducts = async (page = 1, pageSize = 12) => {
   try {
     const response = await fetch(`${BASE_URL}/cgi/search.pl?search_simple=1&action=process&json=1&page=${page}&page_size=${pageSize}`);
     if (!response.ok) throw new Error('Failed to fetch products');
@@ -11,9 +11,9 @@ export const fetchProducts = async (page = 1, pageSize = 20) => {
   }
 };
 
-export const searchProducts = async (query, page = 1) => {
+export const searchProducts = async (query, page = 1, pageSize = 12) => {
   try {
-    const response = await fetch(`${BASE_URL}/cgi/search.pl?search_terms=${query}&search_simple=1&action=process&json=1&page=${page}`);
+    const response = await fetch(`${BASE_URL}/cgi/search.pl?search_terms=${query}&search_simple=1&action=process&json=1&page=${page}&page_size=${pageSize}`);
     if (!response.ok) throw new Error('Failed to search products');
     return await response.json();
   } catch (error) {
@@ -44,9 +44,9 @@ export const getCategories = async () => {
   }
 };
 
-export const getProductsByCategory = async (category, page = 1) => {
+export const getProductsByCategory = async (category, page = 1, pageSize = 12) => {
   try {
-    const response = await fetch(`${BASE_URL}/category/${category}.json?page=${page}`);
+    const response = await fetch(`${BASE_URL}/category/${category}.json?page=${page}&page_size=${pageSize}`);
     if (!response.ok) throw new Error('Failed to fetch products by category');
     return await response.json();
   } catch (error) {

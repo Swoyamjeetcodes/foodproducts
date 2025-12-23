@@ -44,7 +44,7 @@ const Homepage = () => {
           setProducts((prev) => [...prev, ...newProducts]);
         }
         
-        if (newProducts.length === 0 || newProducts.length < 20) {
+        if (newProducts.length === 0 || newProducts.length < 12) {
           setHasMore(false);
         } else {
             setHasMore(true);

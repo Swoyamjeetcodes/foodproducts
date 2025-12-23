@@ -12,7 +12,7 @@ const CategoryFilter = ({ onSelectCategory }) => {
         // OpenFoodFacts returns a lot of tags, we'll take the top 50 categories for now
         // The API structure for categories.json returns tags
         if (data.tags) {
-            setCategories(data.tags.slice(0, 50));
+            setCategories(data.tags.slice(0, 25));
         }
       } catch (error) {
         console.error('Failed to load categories', error);
