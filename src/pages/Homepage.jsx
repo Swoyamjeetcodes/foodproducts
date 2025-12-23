@@ -74,6 +74,7 @@ const Homepage = () => {
   };
 
   useEffect(() => {
+    setProducts([]);
     loadProducts(true);
     setPage(1);
   }, [searchQuery, category]);
@@ -91,6 +92,8 @@ const Homepage = () => {
   }, [sortOption]);
 
   const handleSearch = (query) => {
+    setProducts([]);
+    setLoading(true);
     setSearchQuery(query);
     setCategory('');
   };
@@ -113,6 +116,8 @@ const Homepage = () => {
   };
 
   const handleCategorySelect = (selectedCategory) => {
+    setProducts([]);
+    setLoading(true);
     setCategory(selectedCategory);
     setSearchQuery('');
   };
